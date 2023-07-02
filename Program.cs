@@ -5,9 +5,7 @@ using projectef;
 var builder = WebApplication.CreateBuilder(args);
 
 
-//builder.Services.AddDbContext<TareasContext>(p => p.UseInMemoryDatabase("TareasDdB"));
-
-builder.Services.AddSqlServer<TareasContext>(builder.Configuration.GetConnectionString("cnTareas"));
+builder.Services.AddDbContext<TareasContext>(p => p.UseMySQL(builder.Configuration.GetConnectionString("cnTareas")));
 
 var app = builder.Build();
 app.MapGet("/", () => "Hello World!");

@@ -10,6 +10,11 @@ public class TareasContext:DbContext
 
     public TareasContext(DbContextOptions<TareasContext> options):base(options){}
 
+    // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    // {
+    //     optionsBuilder.UseMySQL() )
+    // }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Categoria>(categoria =>{
