@@ -5,15 +5,20 @@ namespace projectef;
 
 public class TareasContext:DbContext
 {
+    private readonly IConfiguration _configuration;
     public DbSet<Categoria> Categorias {get;set;}
     public DbSet<Tarea> Tareas {get;set;}
 
     public TareasContext(DbContextOptions<TareasContext> options):base(options){}
 
-    // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    // {
-    //     optionsBuilder.UseMySQL() )
-    // }
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        IConfigurationRoot configuration = new ConfigurationBuilder()
+        .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
+        .AddJsonFile("appsettings.json")
+        .Build();
+        optionsBuilder.UseMySQL(configuration.GetConnectionString("MyLocalServer"));
+    }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
