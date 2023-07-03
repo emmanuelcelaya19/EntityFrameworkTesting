@@ -13,6 +13,7 @@ public class Tarea
     public DateTime FechaCreacion {get;set;}
     public virtual Categoria Categoria {get;set;}
     public string Resume {get;set;}
+    public bool JorgieJOTO {get;set;}
 
 }
 
