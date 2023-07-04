@@ -39,8 +39,8 @@ public class TareasContext:DbContext
         modelBuilder.Entity<Tarea>(Tarea => {
 
             List<Tarea> TareasInit = new List<Tarea>();
-            TareasInit.Add(new Tarea{TareaId = Guid.Parse("adb3e939-67a7-4823-bed3-00825062de01"),CategoriaId = Guid.Parse("adb3e939-67a7-4823-bed3-00825062de30"),Titulo = "Revision Cadera", PrioridadTarea = Prioridad.Alta, FechaCreacion = DateTime.Now, JorgieJOTO = true });
-            TareasInit.Add(new Tarea{TareaId = Guid.Parse("adb3e939-67a7-4823-bed3-00825062de02"),CategoriaId = Guid.Parse("adb3e939-67a7-4823-bed3-00825062de31"),Titulo = "Terminar Presentacion Flx", PrioridadTarea = Prioridad.Alta, FechaCreacion = DateTime.Now, JorgieJOTO = true });
+            TareasInit.Add(new Tarea{TareaId = Guid.Parse("adb3e939-67a7-4823-bed3-00825062de01"),CategoriaId = Guid.Parse("adb3e939-67a7-4823-bed3-00825062de30"),Titulo = "Revision Cadera", PrioridadTarea = Prioridad.Alta, FechaCreacion = DateTime.Now});
+            TareasInit.Add(new Tarea{TareaId = Guid.Parse("adb3e939-67a7-4823-bed3-00825062de02"),CategoriaId = Guid.Parse("adb3e939-67a7-4823-bed3-00825062de31"),Titulo = "Terminar Presentacion Flx", PrioridadTarea = Prioridad.Alta, FechaCreacion = DateTime.Now });
 
             Tarea.ToTable("Tarea");
             Tarea.HasKey(t => t.TareaId);
@@ -49,7 +49,6 @@ public class TareasContext:DbContext
             Tarea.Property(t => t.descripcion).HasMaxLength(500).IsRequired(false);
             Tarea.Property(t => t.PrioridadTarea);
             Tarea.Property(t => t.FechaCreacion);
-            Tarea.Property(t=> t.JorgieJOTO);
             Tarea.Ignore(t => t.Resume);
 
             Tarea.HasData(TareasInit);

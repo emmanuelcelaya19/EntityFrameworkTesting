@@ -16,7 +16,6 @@ public class Tarea
 
     [JsonIgnore]
     public string Resume {get;set;}
-    public bool JorgieJOTO {get;set;}
 
 }
 
