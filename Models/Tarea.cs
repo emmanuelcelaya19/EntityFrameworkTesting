@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace projectef.Models;
 
@@ -12,6 +13,8 @@ public class Tarea
     public Prioridad PrioridadTarea {get;set;}
     public DateTime FechaCreacion {get;set;}
     public virtual Categoria Categoria {get;set;}
+
+    [JsonIgnore]
     public string Resume {get;set;}
 
 }
